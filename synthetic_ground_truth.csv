@@ -1,0 +1,8 @@
+channel,roi,decay
+google_search_brand,5.5,0.12
+meta_retargeting,3.8,0.15
+google_pmax_demandgen,3.0,0.3
+google_remarketing,3.0,0.18
+google_search_nonbrand_shop,2.6,0.18
+meta_prospecting,1.5,0.4
+youtube,1.0,0.6
