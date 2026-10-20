@@ -62,25 +62,6 @@ bayesian-marketing-mix-model/
 └── README.md
 ```
 
-## Current Status
-
-- [x] Synthetic dataset generated.
-- [x] Dataset validation completed successfully.
-- [x] Initial Bayesian MMM configuration implemented.
-- [x] Core project files published on GitHub.
-- [ ] End-to-end model fitting and sampling diagnostics verified.
-- [ ] Holdout revenue predictions evaluated.
-- [ ] Recovery of planted channel effects evaluated.
-- [ ] Channel contribution and ROI estimates validated.
-
-## Next Steps
-
-1. Verify end-to-end model fitting and posterior sampling.
-2. Generate predictions for the final 16 weeks held out from training.
-3. Evaluate predictive performance using MAE and RMSE.
-4. Compare estimated channel effects with the planted synthetic parameters.
-5. Document model limitations and the uncertainty in the estimates.
-
 ## Reproducibility and Limitations
 
 This project uses synthetic data rather than real company marketing data. Passing data validation confirms the dataset's structural and numerical integrity; it does not establish predictive accuracy or causal validity.
