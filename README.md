@@ -1,2 +1,57 @@
-# bayesian-marketing-mix-model
-A Bayesian Marketing Mix Model for estimating advertising channel contributions, adstock effects, saturation, and ROI using synthetic data.
+Bayesian Marketing Mix Model
+
+A Bayesian Marketing Mix Modeling (MMM) project to investigate how advertising expenditure across multiple channels relates to revenue, using synthetic weekly marketing data.
+
+Project Overview
+
+Marketing Mix Modeling uses statistical methods to estimate the relationship between marketing activity and business outcomes. This project explores a Bayesian approach to modeling advertising channel effects, incorporating carryover effects and diminishing returns.
+
+The project uses synthetic data with known planted parameters, enabling future evaluation of whether the model can recover the underlying relationships.
+
+Objectives
+Build a Bayesian MMM using Python and PyMC-Marketing.
+Model advertising carryover effects using geometric adstock.
+Represent diminishing returns using logistic saturation.
+Validate and prepare weekly marketing data.
+Evaluate model predictions on a chronological holdout period.
+Investigate channel contribution and return-on-investment estimation.
+Model Design
+
+The current model configuration includes:
+
+Seven advertising channels: Google Search, Meta Retargeting, Google Performance Max, Google Remarketing, Google Search Nonbrand, Meta Prospecting, and YouTube.
+Geometric adstock: Represents the potential carryover of advertising effects over time.
+Logistic saturation: Represents diminishing marginal returns as advertising exposure increases.
+Event control: Includes an indicator for special marketing-event weeks.
+Bayesian estimation: Uses posterior sampling to estimate model parameters and quantify uncertainty.
+Dataset
+
+The repository includes synthetic weekly data with 120 observations covering January 2024 through April 2026.
+
+The data contains:
+
+Weekly advertising expenditure across seven channels.
+A marketing-event indicator.
+Revenue as the target variable.
+A separate file containing planted channel parameters for subsequent model evaluation.
+
+Important: The data is synthetic and does not represent an actual company's performance.
+
+Technology Stack
+Python
+pandas
+NumPy
+PyMC
+PyMC-Marketing
+ArviZ
+
+Repository Structure
+bayesian-marketing-mix-model/
+├── model.py
+├── fit.py
+├── generate_data.py
+├── validate_data.py
+├── synthetic_mmm_data.csv
+├── synthetic_ground_truth.csv
+├── .gitignore
+└── README.md
