@@ -60,6 +60,7 @@ bayesian-marketing-mix-model/
 ├── synthetic_ground_truth.csv
 ├── .gitignore
 └── README.md
+```
 
 ## Current Status
 
