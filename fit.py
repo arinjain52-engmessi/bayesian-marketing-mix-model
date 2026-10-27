@@ -1,4 +1,4 @@
-from pathlib import Path
+﻿from pathlib import Path
 import warnings
 
 import numpy as np
@@ -219,7 +219,7 @@ def fit_model(train):
     mmm.fit(
         X=X_train,
         y=y_train,
-        target_accept=0.99,
+        target_accept=0.995,
         random_seed=42,
     )
 

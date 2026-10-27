@@ -1,12 +1,34 @@
-﻿.mmm-venv/
+﻿# Python cache and virtual environments
 __pycache__/
 *.py[cod]
-*.nc
-.pytest_cache/
-.mypy_cache/
-.ruff_cache/
-.env
 .venv/
+.mmm-venv/
 venv/
+.env
+
+# Saved model and intermediate outputs
+*.nc
+sampling_summary*.csv
+data_scale_summary.csv
+training_data.csv
+holdout_data.csv
+test_data.csv
+
+# Evaluation results, to be regenerated from the final model
+holdout_metrics.csv
+holdout_predictions.csv
+channel_contribution_comparison.csv
+channel_recovery_summary.csv
+channel_roi_recovery.csv
+
+# Exploratory scripts
+check_*.py
+inspect_*.py
+test_sampler.py
+data_loader.py
+
+# IDE and operating system files
+.vscode/
+.idea/
 .DS_Store
 Thumbs.db

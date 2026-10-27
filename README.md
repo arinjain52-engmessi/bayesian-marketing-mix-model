@@ -1,69 +1,67 @@
 # Bayesian Marketing Mix Model
 
-A Bayesian Marketing Mix Modeling (MMM) project to investigate how advertising expenditure across multiple channels relates to revenue using synthetic weekly marketing data.
+A Bayesian Marketing Mix Model built with Python and PyMC-Marketing to estimate advertising channel contributions and study advertising carryover, diminishing returns, and revenue prediction.
 
-## Project Overview
+## Project Features
 
-Marketing Mix Modeling uses statistical methods to estimate the relationship between marketing activity and business outcomes.
-
-This project explores a Bayesian approach to modeling advertising channel effects, incorporating carryover effects and diminishing returns. It uses synthetic data with known planted parameters to enable future evaluation of whether the model can recover the underlying relationships.
-
-## Objectives
-
-- Build a Bayesian MMM using Python and PyMC-Marketing.
-- Model advertising carryover effects using geometric adstock.
-- Represent diminishing returns using logistic saturation.
-- Validate and prepare weekly marketing data.
-- Evaluate predictions on a chronological holdout period.
-- Investigate channel contribution and return-on-investment estimation.
-
-## Model Design
-
-The current model configuration includes:
-
-- **Seven advertising channels:** Google Search, Meta Retargeting, Google Performance Max, Google Remarketing, Google Search Nonbrand, Meta Prospecting, and YouTube.
-- **Geometric adstock:** Represents the potential carryover of advertising effects over time.
-- **Logistic saturation:** Represents diminishing marginal returns as advertising exposure increases.
-- **Event control:** Includes an indicator for special marketing-event weeks.
-- **Bayesian estimation:** Uses posterior sampling to estimate model parameters and quantify uncertainty.
-
-## Dataset
-
-The repository includes synthetic weekly data with 120 observations covering January 2024 through April 2026.
-
-The data contains:
-- Weekly advertising expenditure across seven channels.
-- A marketing-event indicator.
-- Revenue as the target variable.
-- A separate file containing planted channel parameters for subsequent model evaluation.
-
-> **Note:** The data is synthetic and does not represent an actual company's performance.
+- Generate 120 weeks of synthetic marketing data.
+- Model seven advertising channels.
+- Apply geometric adstock and logistic saturation.
+- Account for marketing events and yearly seasonality.
+- Validate data quality and split data chronologically.
+- Fit a Bayesian model using Markov chain Monte Carlo (MCMC).
+- Inspect posterior estimates and sampling diagnostics.
+- Evaluate holdout predictions against simple baseline forecasts.
+- Compare estimated channel contributions with synthetic ground truth.
 
 ## Technology Stack
 
-- Python
-- pandas
-- NumPy
-- PyMC
-- PyMC-Marketing
-- ArviZ
+Python, NumPy, pandas, PyMC, PyMC-Marketing, and ArviZ.
 
-## Repository Structure
+## Project Files
 
-```text
-bayesian-marketing-mix-model/
-├── model.py
-├── fit.py
-├── generate_data.py
-├── validate_data.py
-├── synthetic_mmm_data.csv
-├── synthetic_ground_truth.csv
-├── .gitignore
-└── README.md
-```
+- `generate_data.py` — generates synthetic data.
+- `validate_data.py` — validates the dataset.
+- `model.py` — defines the Bayesian model.
+- `fit.py` — fits the model and reports sampling diagnostics.
+- `evaluate_model.py` — evaluates holdout predictions.
+- `requirements.txt` — lists dependencies.
 
-## Reproducibility and Limitations
+## Running the Project
 
-This project uses synthetic data rather than real company marketing data. Passing data validation confirms the dataset's structural and numerical integrity; it does not establish predictive accuracy or causal validity.
+Install the dependencies:
 
-Model performance, parameter recovery, and channel-level ROI estimates remain to be evaluated.
+    pip install -r requirements.txt
+
+Run the scripts from the project directory:
+
+    python generate_data.py
+    python validate_data.py
+    python fit.py
+    python evaluate_model.py
+
+The workflow uses 104 weekly observations for training and 16 for holdout evaluation.
+
+## Latest Holdout Results
+
+The latest recorded evaluation on 16 synthetic holdout observations reported:
+
+| Metric | Bayesian MMM | Training-mean baseline |
+|---|---:|---:|
+| MAE | Rs. 218,368 | Rs. 416,962 |
+| RMSE | Rs. 321,210 | Rs. 526,177 |
+| WAPE | 1.0655% | 2.0346% |
+
+These results are specific to the synthetic dataset. Predictive accuracy alone does not establish causal validity or confirm that every channel's return on ad spend has been recovered correctly.
+
+The model's sampling diagnostics and channel-level contribution recovery require separate assessment.
+
+## Limitations
+
+- The data is synthetic, not real business data.
+- The holdout set contains only 16 observations.
+- Channel attribution and ROAS recovery require additional validation.
+
+## Author
+
+Arin Jain
